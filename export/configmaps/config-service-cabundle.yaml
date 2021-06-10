@@ -26,6 +26,7 @@ metadata:
   annotations:
     service.beta.openshift.io/inject-cabundle: "true"
   labels:
+    app.kubernetes.io/instance: round-trip
     app.kubernetes.io/part-of: tekton-pipelines
   name: config-service-cabundle
   namespace: n1
