@@ -7,13 +7,11 @@ metadata:
   name: export-app-service
   namespace: n1
 spec:
-  externalTrafficPolicy: Cluster
   ports:
-    - nodePort: 32042
-      port: 8080
+    - port: 8080
       protocol: TCP
       targetPort: 8080
   selector:
     app: export-app
   sessionAffinity: None
-  type: LoadBalancer
+  type: ClusterIP
