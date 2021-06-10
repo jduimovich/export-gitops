@@ -6,20 +6,20 @@ metadata:
     deployment.kubernetes.io/max-replicas: "2"
   labels:
     app: export-app
-    pod-template-hash: 8f946d798
-  name: export-app-deploy-8f946d798
-  namespace: n1
+    pod-template-hash: 699696bdd4
+  name: export-app-deploy-699696bdd4
+  namespace: default
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: export-app
-      pod-template-hash: 8f946d798
+      pod-template-hash: 699696bdd4
   template:
     metadata:
       labels:
         app: export-app
-        pod-template-hash: 8f946d798
+        pod-template-hash: 699696bdd4
     spec:
       containers:
         - env:
@@ -33,7 +33,7 @@ spec:
                 secretKeyRef:
                   key: password
                   name: github-basic-auth
-          image: jduimovich/export-app
+          image: localhost:5000/export-app
           imagePullPolicy: Always
           name: export-app-deploy
           ports:
@@ -52,6 +52,4 @@ spec:
       restartPolicy: Always
       schedulerName: default-scheduler
       securityContext: {}
-      serviceAccount: k8s-101-role
-      serviceAccountName: k8s-101-role
       terminationGracePeriodSeconds: 30
