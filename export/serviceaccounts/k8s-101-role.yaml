@@ -1,8 +1,0 @@
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  annotations: {}
-  labels:
-    k8s-app: export-app
-  name: k8s-101-role
-  namespace: n1
