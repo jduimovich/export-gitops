@@ -5,7 +5,7 @@ metadata:
   labels:
     app: export-app
   name: export-app-deploy
-  namespace: n1
+  namespace: default
 spec:
   replicas: 1
   selector:
@@ -33,7 +33,7 @@ spec:
                 secretKeyRef:
                   key: password
                   name: github-basic-auth
-          image: jduimovich/export-app
+          image: localhost:5000/export-app
           imagePullPolicy: Always
           name: export-app-deploy
           ports:
@@ -52,6 +52,4 @@ spec:
       restartPolicy: Always
       schedulerName: default-scheduler
       securityContext: {}
-      serviceAccount: k8s-101-role
-      serviceAccountName: k8s-101-role
       terminationGracePeriodSeconds: 30
