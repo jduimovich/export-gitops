@@ -5,11 +5,11 @@ metadata:
   labels:
     app: export-app-service
   name: export-app-service
-  namespace: n1
+  namespace: default
 spec:
   externalTrafficPolicy: Cluster
   ports:
-    - nodePort: 32042
+    - nodePort: 31171
       port: 8080
       protocol: TCP
       targetPort: 8080

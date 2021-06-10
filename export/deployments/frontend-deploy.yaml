@@ -6,12 +6,12 @@ metadata:
   labels:
     app: frontend
     app.kubernetes.io/component: frontend
-    app.kubernetes.io/instance: round-trip
+    app.kubernetes.io/instance: nginx-html-server
     app.kubernetes.io/name: frontend-deploy
     app.kubernetes.io/part-of: frontend-service
     app.openshift.io/runtime: nginx
   name: frontend-deploy
-  namespace: n1
+  namespace: default
 spec:
   replicas: 1
   selector:

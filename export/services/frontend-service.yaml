@@ -4,9 +4,8 @@ metadata:
   annotations: {}
   labels:
     app: frontend-service
-    app.kubernetes.io/instance: round-trip
   name: frontend-service
-  namespace: n1
+  namespace: default
 spec:
   ports:
     - port: 8080

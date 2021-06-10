@@ -3,7 +3,7 @@ kind: RoleBinding
 metadata:
   annotations: {}
   name: k8s-101-role
-  namespace: n1
+  namespace: default
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role

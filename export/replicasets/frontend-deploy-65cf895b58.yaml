@@ -7,10 +7,9 @@ metadata:
     deployment.kubernetes.io/max-replicas: "2"
   labels:
     app: frontend
-    app.kubernetes.io/instance: round-trip
     pod-template-hash: 65cf895b58
   name: frontend-deploy-65cf895b58
-  namespace: n1
+  namespace: default
 spec:
   replicas: 1
   selector:

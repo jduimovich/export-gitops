@@ -7,10 +7,9 @@ metadata:
     deployment.kubernetes.io/max-replicas: "3"
   labels:
     app: fib
-    app.kubernetes.io/instance: round-trip
     pod-template-hash: 7c9cd9bc66
   name: fib-go-deploy-7c9cd9bc66
-  namespace: n1
+  namespace: default
 spec:
   replicas: 2
   selector:
