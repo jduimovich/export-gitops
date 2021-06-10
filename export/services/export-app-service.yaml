@@ -9,7 +9,7 @@ metadata:
 spec:
   externalTrafficPolicy: Cluster
   ports:
-    - nodePort: 31454
+    - nodePort: 32042
       port: 8080
       protocol: TCP
       targetPort: 8080
