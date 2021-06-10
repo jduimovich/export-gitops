@@ -1,0 +1,21 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  annotations: {}
+  labels:
+    k8s-app: export-app
+  name: k8s-101-role
+  namespace: n1
+rules:
+  - apiGroups:
+      - ""
+    resources:
+      - pods
+    verbs:
+      - create
+      - update
+      - patch
+      - delete
+      - get
+      - watch
+      - list
