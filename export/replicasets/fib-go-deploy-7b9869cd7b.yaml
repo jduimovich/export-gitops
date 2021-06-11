@@ -7,35 +7,24 @@ metadata:
     deployment.kubernetes.io/max-replicas: "5"
   labels:
     app: fib
-    app.kubernetes.io/instance: round-trip
-    pod-template-hash: 7c9cd9bc66
-  name: fib-go-deploy-7c9cd9bc66
+    pod-template-hash: 7b9869cd7b
+  name: fib-go-deploy-7b9869cd7b
   namespace: n1
 spec:
-  replicas: 0
+  replicas: 4
   selector:
     matchLabels:
       app: fib
-      pod-template-hash: 7c9cd9bc66
+      pod-template-hash: 7b9869cd7b
   template:
     metadata:
       labels:
         app: fib
-        pod-template-hash: 7c9cd9bc66
+        pod-template-hash: 7b9869cd7b
     spec:
       containers:
         - image: docker.io/jduimovich/fib-go:4e7342d
           imagePullPolicy: Always
-          livenessProbe:
-            failureThreshold: 3
-            httpGet:
-              path: /health
-              port: 8080
-              scheme: HTTP
-            initialDelaySeconds: 2
-            periodSeconds: 5
-            successThreshold: 1
-            timeoutSeconds: 1
           name: fib-go-deploy
           ports:
             - containerPort: 8080
