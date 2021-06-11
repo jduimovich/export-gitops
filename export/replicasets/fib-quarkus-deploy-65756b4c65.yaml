@@ -7,7 +7,6 @@ metadata:
     deployment.kubernetes.io/max-replicas: "3"
   labels:
     app: fib
-    app.kubernetes.io/instance: round-trip
     pod-template-hash: 65756b4c65
   name: fib-quarkus-deploy-65756b4c65
   namespace: n1
