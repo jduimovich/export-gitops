@@ -6,6 +6,7 @@ metadata:
     container.apparmor.security.beta.kubernetes.io/haproxy-deploy: runtime/default
   labels:
     app: haproxy
+    app.kubernetes.io/instance: round-trip
     app.openshift.io/runtime: haproxy
   name: haproxy-deploy
   namespace: n1

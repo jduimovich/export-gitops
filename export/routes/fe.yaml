@@ -5,6 +5,7 @@ metadata:
     openshift.io/host.generated: "true"
   labels:
     app: haproxy-service
+    app.kubernetes.io/instance: round-trip
   name: fe
   namespace: n1
 spec:

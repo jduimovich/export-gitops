@@ -3,15 +3,16 @@ kind: ReplicaSet
 metadata:
   annotations:
     container.apparmor.security.beta.kubernetes.io/fib-go-deploy: runtime/default
-    deployment.kubernetes.io/desired-replicas: "2"
-    deployment.kubernetes.io/max-replicas: "3"
+    deployment.kubernetes.io/desired-replicas: "5"
+    deployment.kubernetes.io/max-replicas: "7"
   labels:
     app: fib
+    app.kubernetes.io/instance: round-trip
     pod-template-hash: 7c9cd9bc66
   name: fib-go-deploy-7c9cd9bc66
   namespace: n1
 spec:
-  replicas: 2
+  replicas: 5
   selector:
     matchLabels:
       app: fib

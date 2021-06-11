@@ -6,14 +6,14 @@ metadata:
   labels:
     app: fib
     app.kubernetes.io/component: backend
-    app.kubernetes.io/instance: fib-service-in-quarkus
+    app.kubernetes.io/instance: round-trip
     app.kubernetes.io/name: fib-quarkus-deploy
     app.kubernetes.io/part-of: fib-service
     app.openshift.io/runtime: quarkus
   name: fib-quarkus-deploy
   namespace: n1
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: fib
