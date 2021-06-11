@@ -6,7 +6,7 @@ metadata:
   labels:
     app: fib
     app.kubernetes.io/component: backend
-    app.kubernetes.io/instance: round-trip
+    app.kubernetes.io/instance: fib-service-in-node
     app.kubernetes.io/name: fib-node-deploy
     app.kubernetes.io/part-of: fib-service
     app.openshift.io/runtime: nodejs

@@ -8,7 +8,6 @@ metadata:
     deployment.kubernetes.io/max-replicas: "2"
   labels:
     app: haproxy
-    app.kubernetes.io/instance: round-trip
     pod-template-hash: 69469b84cf
   name: haproxy-deploy-69469b84cf
   namespace: n1

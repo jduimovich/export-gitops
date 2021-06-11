@@ -6,14 +6,14 @@ metadata:
   labels:
     app: fib
     app.kubernetes.io/component: backend
-    app.kubernetes.io/instance: round-trip
+    app.kubernetes.io/instance: fib-service-in-go
     app.kubernetes.io/name: fib-go-deploy
     app.kubernetes.io/part-of: fib-service
     app.openshift.io/runtime: golang
   name: fib-go-deploy
   namespace: n1
 spec:
-  replicas: 4
+  replicas: 2
   selector:
     matchLabels:
       app: fib
@@ -30,6 +30,16 @@ spec:
       containers:
         - image: docker.io/jduimovich/fib-go:4e7342d
           imagePullPolicy: Always
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /health
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 2
+            periodSeconds: 5
+            successThreshold: 1
+            timeoutSeconds: 1
           name: fib-go-deploy
           ports:
             - containerPort: 8080

@@ -2,8 +2,6 @@ apiVersion: v1
 kind: Service
 metadata:
   annotations: {}
-  labels:
-    app.kubernetes.io/instance: round-trip
   name: fibs-service
   namespace: n1
 spec:

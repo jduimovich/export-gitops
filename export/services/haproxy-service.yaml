@@ -4,7 +4,6 @@ metadata:
   annotations: {}
   labels:
     app: haproxy-service
-    app.kubernetes.io/instance: round-trip
   name: haproxy-service
   namespace: n1
 spec:
