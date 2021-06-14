@@ -6,20 +6,20 @@ metadata:
     deployment.kubernetes.io/max-replicas: "2"
   labels:
     app: export-app
-    pod-template-hash: 8f946d798
-  name: export-app-deploy-8f946d798
+    pod-template-hash: 7b647df6c4
+  name: export-app-deploy-7b647df6c4
   namespace: n1
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: export-app
-      pod-template-hash: 8f946d798
+      pod-template-hash: 7b647df6c4
   template:
     metadata:
       labels:
         app: export-app
-        pod-template-hash: 8f946d798
+        pod-template-hash: 7b647df6c4
     spec:
       containers:
         - env:
@@ -42,10 +42,10 @@ spec:
           resources:
             limits:
               cpu: 300m
-              memory: 512Mi
+              memory: 1Gi
             requests:
               cpu: 300m
-              memory: 512Mi
+              memory: 1Gi
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
       dnsPolicy: ClusterFirst
