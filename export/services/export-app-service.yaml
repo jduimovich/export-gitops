@@ -4,7 +4,6 @@ metadata:
   annotations: {}
   labels:
     app: export-app-service
-    app.kubernetes.io/instance: round-trip
   name: export-app-service
   namespace: n1
 spec:
