@@ -3,7 +3,6 @@ kind: ServiceAccount
 metadata:
   annotations: {}
   labels:
-    app.kubernetes.io/instance: round-trip
     k8s-app: export-app
   name: k8s-101-role
   namespace: n1
