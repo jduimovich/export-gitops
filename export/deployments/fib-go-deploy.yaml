@@ -13,7 +13,7 @@ metadata:
   name: fib-go-deploy
   namespace: n1
 spec:
-  replicas: 4
+  replicas: 6
   selector:
     matchLabels:
       app: fib
