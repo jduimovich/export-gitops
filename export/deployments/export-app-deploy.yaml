@@ -23,6 +23,21 @@ spec:
     spec:
       containers:
         - env:
+            - name: MY_GITHUB_REPO
+              valueFrom:
+                configMapKeyRef:
+                  key: repo
+                  name: git-user-and-email
+            - name: MY_GITHUB_USERNAME
+              valueFrom:
+                configMapKeyRef:
+                  key: username
+                  name: git-user-and-email
+            - name: MY_GITHUB_EMAIL
+              valueFrom:
+                configMapKeyRef:
+                  key: email
+                  name: git-user-and-email
             - name: MY_GITHUB_USER
               valueFrom:
                 secretKeyRef:
@@ -42,10 +57,10 @@ spec:
           resources:
             limits:
               cpu: 300m
-              memory: 512Mi
+              memory: 1Gi
             requests:
               cpu: 300m
-              memory: 512Mi
+              memory: 1Gi
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
       dnsPolicy: ClusterFirst
