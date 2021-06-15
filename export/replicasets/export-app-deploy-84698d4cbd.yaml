@@ -6,6 +6,7 @@ metadata:
     deployment.kubernetes.io/max-replicas: "2"
   labels:
     app: export-app
+    app.kubernetes.io/instance: round-trip
     pod-template-hash: 84698d4cbd
   name: export-app-deploy-84698d4cbd
   namespace: n1
