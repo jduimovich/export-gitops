@@ -2,8 +2,6 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   annotations: {}
-  labels:
-    app.kubernetes.io/instance: round-trip
   name: k8s-101-role
   namespace: n1
 roleRef:
