@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  annotations:
+    alpha.image.policy.openshift.io/resolve-names: '*'
+    app.openshift.io/vcs-uri: https://github.com/jduimovich/simple-app
+    deployment.kubernetes.io/desired-replicas: "1"
+    deployment.kubernetes.io/max-replicas: "2"
+    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"simple-app:latest","namespace":"n1"},"fieldPath":"spec.template.spec.containers[?(@.name==\"simple-app\")].image","pause":"false"}]'
+    openshift.io/generated-by: OpenShiftWebConsole
+  labels:
+    app: simple-app
+    deploymentconfig: simple-app
+    pod-template-hash: 6f75db6c6
+  name: simple-app-6f75db6c6
+  namespace: n1
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      app: simple-app
+      pod-template-hash: 6f75db6c6
+  template:
+    metadata:
+      labels:
+        app: simple-app
+        deploymentconfig: simple-app
+        pod-template-hash: 6f75db6c6
+    spec:
+      containers:
+        - image: image-registry.openshift-image-registry.svc:5000/n1/simple-app:latest
+          imagePullPolicy: Always
+          name: simple-app
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30

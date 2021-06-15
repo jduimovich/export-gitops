@@ -6,21 +6,20 @@ metadata:
     deployment.kubernetes.io/max-replicas: "2"
   labels:
     app: export-app
-    app.kubernetes.io/instance: round-trip
-    pod-template-hash: 84698d4cbd
-  name: export-app-deploy-84698d4cbd
+    pod-template-hash: 5bc4669db8
+  name: export-app-deploy-5bc4669db8
   namespace: n1
 spec:
-  replicas: 0
+  replicas: 1
   selector:
     matchLabels:
       app: export-app
-      pod-template-hash: 84698d4cbd
+      pod-template-hash: 5bc4669db8
   template:
     metadata:
       labels:
         app: export-app
-        pod-template-hash: 84698d4cbd
+        pod-template-hash: 5bc4669db8
     spec:
       containers:
         - env:
@@ -51,10 +50,30 @@ spec:
                   name: github-basic-auth
           image: jduimovich/export-app
           imagePullPolicy: Always
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /health
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
           name: export-app-deploy
           ports:
             - containerPort: 8080
               protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /health
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
           resources:
             limits:
               cpu: 300m
