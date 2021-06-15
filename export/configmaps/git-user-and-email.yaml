@@ -6,5 +6,7 @@ data:
 kind: ConfigMap
 metadata:
   annotations: {}
+  labels:
+    app.kubernetes.io/instance: round-trip
   name: git-user-and-email
   namespace: n1
