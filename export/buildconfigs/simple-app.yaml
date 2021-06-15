@@ -1,0 +1,52 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  annotations:
+    app.openshift.io/vcs-ref: ""
+    app.openshift.io/vcs-uri: https://github.com/jduimovich/simple-app
+    openshift.io/generated-by: OpenShiftWebConsole
+  labels:
+    app: simple-app
+    app.kubernetes.io/component: simple-app
+    app.kubernetes.io/instance: simple-app
+    app.kubernetes.io/name: nodejs
+    app.openshift.io/runtime: nodejs
+    app.openshift.io/runtime-version: 14-ubi7
+  name: simple-app
+  namespace: n1
+spec:
+  failedBuildsHistoryLimit: 5
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: simple-app:latest
+  postCommit: {}
+  resources: {}
+  runPolicy: Serial
+  source:
+    contextDir: /
+    git:
+      uri: https://github.com/jduimovich/simple-app
+    type: Git
+  strategy:
+    sourceStrategy:
+      from:
+        kind: ImageStreamTag
+        name: nodejs:14-ubi7
+        namespace: openshift
+    type: Source
+  successfulBuildsHistoryLimit: 5
+  triggers:
+    - generic:
+        secretReference:
+          name: simple-app-generic-webhook-secret
+      type: Generic
+    - github:
+        secretReference:
+          name: simple-app-github-webhook-secret
+      type: GitHub
+    - imageChange:
+        lastTriggeredImageID: image-registry.openshift-image-registry.svc:5000/openshift/nodejs@sha256:88c99371d8aa44e98b504f62ba30f738a8db2eff918a05d3b6e7bfb9ba0a15d2
+      type: ImageChange
+    - type: ConfigChange
