@@ -5,8 +5,7 @@ data:
   username: John Duimovich
 kind: ConfigMap
 metadata:
-  annotations: {}
-  labels:
-    app.kubernetes.io/instance: gitops
+  annotations:
+    export.app.control/prune: "true"
   name: git-user-and-email
   namespace: n1

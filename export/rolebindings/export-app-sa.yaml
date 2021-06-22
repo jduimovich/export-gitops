@@ -1,9 +1,8 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  annotations: {}
-  labels:
-    app.kubernetes.io/instance: gitops
+  annotations:
+    export.app.control/prune: "true"
   name: export-app-sa
   namespace: n1
 roleRef:
