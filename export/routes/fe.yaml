@@ -5,6 +5,7 @@ metadata:
     openshift.io/host.generated: "true"
   labels:
     app: haproxy-service
+    app.kubernetes.io/instance: gitops
   name: fe
   namespace: n1
 spec:

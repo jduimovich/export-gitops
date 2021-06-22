@@ -3,6 +3,7 @@ kind: ServiceAccount
 metadata:
   annotations: {}
   labels:
+    app.kubernetes.io/instance: gitops
     export-app-sa: export-app
   name: export-app-sa
   namespace: n1

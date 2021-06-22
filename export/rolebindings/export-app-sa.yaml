@@ -3,7 +3,7 @@ kind: RoleBinding
 metadata:
   annotations: {}
   labels:
-    export-prune: yes
+    app.kubernetes.io/instance: gitops
   name: export-app-sa
   namespace: n1
 roleRef:
