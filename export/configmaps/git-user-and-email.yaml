@@ -7,6 +7,6 @@ kind: ConfigMap
 metadata:
   annotations: {}
   labels:
-    export-prune: yes
+    app.kubernetes.io/instance: gitops
   name: git-user-and-email
   namespace: n1

@@ -4,8 +4,7 @@ metadata:
   annotations:
     export.app.io/test: runtime/default
   labels:
-    app: export-app
-    export-prune: yes
+    app.kubernetes.io/instance: gitops
   name: export-app-deploy
   namespace: n1
 spec:

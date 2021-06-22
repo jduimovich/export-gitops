@@ -3,8 +3,7 @@ kind: Service
 metadata:
   annotations: {}
   labels:
-    app: export-app-service
-    export-prune: yes
+    app.kubernetes.io/instance: gitops
   name: export-app-service
   namespace: n1
 spec:
