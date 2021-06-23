@@ -2,9 +2,10 @@ apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   annotations:
+    export.app.control/prune: "true"
     openshift.io/host.generated: "true"
   labels:
-    app.kubernetes.io/instance: gitops
+    app: export-app-service
   name: export-app
   namespace: n1
 spec:
