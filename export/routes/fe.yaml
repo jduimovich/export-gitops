@@ -2,6 +2,7 @@ apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   annotations:
+    app.openshift.io/connects-to: '[{"apiVersion":"apps/v1","kind":"Deployment","name":"fib-go-deploy"}]'
     openshift.io/host.generated: "true"
   labels:
     app: haproxy-service

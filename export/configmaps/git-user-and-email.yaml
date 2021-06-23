@@ -1,0 +1,12 @@
+apiVersion: v1
+data:
+  email: jduimovich@gmail.com
+  ns: n1
+  repo: export-gitops
+  username: John Duimovich
+kind: ConfigMap
+metadata:
+  annotations:
+    export.app.control/prune: "true"
+  name: git-user-and-email
+  namespace: n1
