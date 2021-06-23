@@ -5,6 +5,7 @@ metadata:
     export.app.control/prune: "true"
   labels:
     app: export-app-service
+    app.kubernetes.io/instance: gitops
   name: export-app-service
   namespace: n1
 spec:
