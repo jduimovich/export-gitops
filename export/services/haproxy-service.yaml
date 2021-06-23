@@ -4,6 +4,7 @@ metadata:
   annotations: {}
   labels:
     app: haproxy-service
+    app.kubernetes.io/instance: gitops
   name: haproxy-service
   namespace: n1
 spec:
