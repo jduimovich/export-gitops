@@ -6,7 +6,7 @@ metadata:
   labels:
     app: frontend
     app.kubernetes.io/component: frontend
-    app.kubernetes.io/instance: nginx-html-server
+    app.kubernetes.io/instance: gitops
     app.kubernetes.io/name: frontend-deploy
     app.kubernetes.io/part-of: frontend-service
     app.openshift.io/runtime: nginx
