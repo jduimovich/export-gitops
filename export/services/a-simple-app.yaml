@@ -8,7 +8,7 @@ metadata:
   labels:
     app: a-simple-app
     app.kubernetes.io/component: a-simple-app
-    app.kubernetes.io/instance: a-simple-app
+    app.kubernetes.io/instance: gitops
     app.kubernetes.io/name: nodejs
     app.openshift.io/runtime: nodejs
     app.openshift.io/runtime-version: 14-ubi7
