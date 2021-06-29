@@ -1,0 +1,23 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  annotations:
+    openshift.io/host.generated: "true"
+  labels:
+    app: a-simple-app
+    app.kubernetes.io/component: a-simple-app
+    app.kubernetes.io/instance: a-simple-app
+    app.kubernetes.io/name: nodejs
+    app.openshift.io/runtime: nodejs
+    app.openshift.io/runtime-version: 14-ubi7
+  name: a-simple-app
+  namespace: n1
+spec:
+  host: a-simple-app-n1.apps-crc.testing
+  port:
+    targetPort: 8080-tcp
+  to:
+    kind: Service
+    name: a-simple-app
+    weight: 100
+  wildcardPolicy: None
