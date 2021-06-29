@@ -1,10 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  annotations:
-    app.openshift.io/connects-to: '["nginx-html-server","fib-service-in-go","fib-service-in-quarkus","fib-service-in-node"]'
-  labels:
-    app.kubernetes.io/instance: gitops
+  annotations: {}
   name: fibs-service
   namespace: n1
 spec:
