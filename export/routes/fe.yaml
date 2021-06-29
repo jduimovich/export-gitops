@@ -2,11 +2,9 @@ apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   annotations:
-    app.openshift.io/connects-to: '["nginx-html-server","fib-service-in-go","fib-service-in-quarkus","fib-service-in-node"]'
     openshift.io/host.generated: "true"
   labels:
     app: haproxy-service
-    app.kubernetes.io/instance: gitops
   name: fe
   namespace: n1
 spec:

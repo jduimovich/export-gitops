@@ -2,11 +2,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    app.openshift.io/connects-to: '["nginx-html-server","fib-service-in-go","fib-service-in-quarkus","fib-service-in-node"]'
+    app.openshift.io/connects-to: '[ "nginx-html-server",  "fib-service-in-go",  "fib-service-in-quarkus",  "fib-service-in-node"]'
     container.apparmor.security.beta.kubernetes.io/haproxy-deploy: runtime/default
   labels:
     app: haproxy
-    app.kubernetes.io/instance: gitops
     app.openshift.io/runtime: haproxy
   name: haproxy-deploy
   namespace: n1
