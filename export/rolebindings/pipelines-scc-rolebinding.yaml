@@ -1,6 +1,9 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
+  annotations: {}
+  labels:
+    app.kubernetes.io/instance: managedgraph
   name: pipelines-scc-rolebinding
   namespace: n1
 roleRef:

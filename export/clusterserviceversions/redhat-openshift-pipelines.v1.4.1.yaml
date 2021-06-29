@@ -59,6 +59,7 @@ metadata:
     repository: https://github.com/openshift/tektoncd-operator
     support: Red Hat
   labels:
+    app.kubernetes.io/instance: managedgraph
     olm.api.65f9b17a0686deba: provided
     olm.api.8bc141e2749b945a: provided
     olm.api.b4594dbd037eba2a: provided
