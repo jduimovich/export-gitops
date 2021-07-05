@@ -1,7 +1,7 @@
 
 @echo off
 
-set NS=gitops-export
+set NS=export-gitops
 
 oc whoami --show-token >openshift.login.token
 set /P LOGINQ=< openshift.login.token
