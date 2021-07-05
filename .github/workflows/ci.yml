@@ -1,0 +1,34 @@
+# Export NS 
+
+name:  Export NS on OpenShift 
+env:        
+  OPENSHIFT_SERVER: ${{ secrets.OPENSHIFT_SERVER }}
+  OPENSHIFT_TOKEN: ${{ secrets.OPENSHIFT_TOKEN }}  
+  OPENSHIFT_NAMESPACE: ${{ secrets.OPENSHIFT_NAMESPACE}}  
+  MY_EXPORT_NS: ${{ secrets.OPENSHIFT_NAMESPACE}}  
+on: [push, workflow_dispatch]
+jobs:
+  export-to-gitops:
+    name: Export Namespace
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2    
+      - name: Log in to OpenShift 
+        uses: redhat-actions/oc-login@v1
+        with:
+          openshift_server_url: ${{ env.OPENSHIFT_SERVER }}
+          openshift_token: ${{ env.OPENSHIFT_TOKEN }}
+          insecure_skip_tls_verify: true
+          namespace: ${{ env.OPENSHIFT_NAMESPACE }}
+      - name: Export Namespace
+        uses: jduimovich/gitops-export@main
+        with: 
+          openshift-namespace:  ${{ env.OPENSHIFT_NAMESPACE }}  
+      - name: Create Pull Request to update changes in repo
+        uses: peter-evans/create-pull-request@v3
+        with:
+          title: 'New Gitops Export as Pull Request'
+          commit-message: 'New gitops config' 
+
+      
